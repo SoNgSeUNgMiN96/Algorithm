@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.awt.Point;
 
 public class programmersCandidateKey {
     public boolean getKey(String [][]relation, String candidateKeyBit,HashSet<String> candidateKeySet ){
@@ -31,6 +32,8 @@ public class programmersCandidateKey {
                 }
             }
         }
+        Point a = new Point(1,1);
+        System.out.println(a.x);
         //이건 최소키라는 의미이니 추가한다. 나의 자식을 포함해서 나는 키이다.
         if(success){
             candidateKeySet.add(candidateKeyBit);
