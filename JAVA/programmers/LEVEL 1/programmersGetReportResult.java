@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Locale;
 
 public class programmersGetReportResult {
     public static void main(String[] args) {
@@ -28,6 +29,7 @@ public class programmersGetReportResult {
                 ids.put(s,temp);
                 reportCount.put(s,0);
             }
+
 
             String reporterReceiver[];      //누가 reporterReceiver[0] 누구를 reporterReceiver[1]리폿하는지를 담을 스트링배열
 
