@@ -50,7 +50,11 @@ public class programmersBannedUser {
 
     public static void main(String[] args) {
         String[] user_id = {"frodo", "fradi", "crodo", "abc123", "frodoc"}, banned_id = {"fr*d*", "*rodo", "******", "******"};
-        System.out.println(solution(user_id,banned_id));
+        //System.out.println(solution(user_id,banned_id));
+
+        String temp ="BAAAAAA";
+        temp = temp.replace("AA","");
+        System.out.println(temp);
     }
 
 }
