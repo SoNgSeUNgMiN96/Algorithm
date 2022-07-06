@@ -10,6 +10,7 @@
       <sourceFolder url="file://$MODULE_DIR$/JAVA/baekjoon/samsung" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/JAVA/baekjoon/Gold" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/JAVA/baekjoon/Silver" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JAVA/baekjoon/Platinum" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="16" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
