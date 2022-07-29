@@ -20,7 +20,7 @@ public class programmersDelivery {
 
         ArrayList<Node>[] graph = new ArrayList[N+1];
 
-        PriorityQueue<Node> pq = new PriorityQueue<>((a,b)->a.w-b.w);       //여기서의 Node에는 현재 노드까지의 누적된 거리의 합의 최솟값,과 현재 노드를 담는다.
+        PriorityQueue<Node> pq = new PriorityQueue<>((a, b) -> a.w - b.w);       //여기서의 Node에는 현재 노드까지의 누적된 거리의 합의 최솟값,과 현재 노드를 담는다.
 
         for (int i = 1; i < graph.length; i++) {
             graph[i] = new ArrayList<>();
@@ -49,7 +49,6 @@ public class programmersDelivery {
         for (int i = 1; i <= N; i++) {
             if(dist[i]<=K) answer++;
         }
-
         return answer;
     }
 

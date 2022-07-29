@@ -42,10 +42,10 @@ public class programmersArcheryCompetition {
             pick[10] = 0;
             return;
         }
-        int arrows = info[depth]+1, sub = 10-depth;
-        if(arrows<=n){   //여길 쏴서 뻇을 수 있는지?
+        int arrows = info[depth]+1, sub = 10-depth;  //sub가 현재 점수.
+        if(arrows<=n){   //여길 쏴서 뻇을 수 있는지?   2개  그럼 3개를 쏠수있는지
             pick[depth] = arrows;    //여길 쏴본다.
-            if(info[depth]!=0) dfs(info,pick,n-arrows, depth +1, score + sub, subscore- sub);
+            if(info[depth]!=0) dfs(info,pick,n-arrows, depth +1, score + sub, subscore - sub);
             else dfs(info,pick,n-arrows, depth +1, score + sub, subscore);
             pick[depth] = 0;    //여길 안쏴본다.
         }
