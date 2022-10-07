@@ -1,3 +1,5 @@
+package baekjoon.Gold;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
@@ -36,7 +38,7 @@ public class BOJ2252 {
         }
         for (int i = 0; i < N; i++) {
             if(!visited[i]){
-                answer.add(i);
+               answer.add(i);
             }
         }
         for (int i = 0; i < answer.size(); i++) {

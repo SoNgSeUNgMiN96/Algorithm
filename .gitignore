@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+out/
+
+=======
 ./out
 /out
 out
@@ -5,3 +9,4 @@ out
 .idea
 Algorithm.iml
 .DS_Store
+>>>>>>> a2c86b35b6bfc50afa1d6cc2fab8c34b95a86b65

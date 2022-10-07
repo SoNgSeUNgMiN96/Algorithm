@@ -34,7 +34,7 @@ public class programmersFileSort {
 
                 for (i=0;i<o2.length();i++){
                     temp = o2.substring(0,i+1);
-                    if(!Pattern.matches("^[a-zA-Z.\\-\s]*$", temp)) break;
+                    if(!Pattern.matches("^[a-zA-Z.\\-\bgs]*$", temp)) break;
                     head2 = temp;
                 }
 
