@@ -5,6 +5,7 @@ import java.net.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 
@@ -19,7 +20,7 @@ public class _2022BlindTest {
     static int problem;
     static String plus = "/user_info";
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, JSONException {
 
 
         String BASE_URL = " https://kox947ka1a.execute-api.ap-northeast-2.amazonaws.com/prod/users";
@@ -37,7 +38,12 @@ public class _2022BlindTest {
 
         httpPostConnection(BASE_URL, "/start");
         httpGetConnection(BASE_URL+"/locations","");
-//        httpGetConnection(BASE_URL+"/game_result","");
+        httpGetConnection(BASE_URL+"/trucks","");
+        for (int i = 0; i < 720; i++) {
+            httpPutConnection(BASE_URL + "/simulate", "");
+        }
+        httpGetConnection(BASE_URL+"/score","");
+
     }
 
 
@@ -116,9 +122,9 @@ public class _2022BlindTest {
         }
     }
 
-    public static void httpPostConnection(String UrlData, String ParamData) throws IOException {
+    public static void httpPostConnection(String UrlData, String ParamData) throws IOException, JSONException {
 
-        URL url = new URL(UrlData+ParamData+"?problem=2");
+        URL url = new URL(UrlData+ParamData+"?problem=1");
         //호출할url
         System.out.println(url);
         Map<String, Object> params = new LinkedHashMap<>();//파라미터 세팅
@@ -164,6 +170,53 @@ public class _2022BlindTest {
 
     }
 
+
+    public static void httpPutConnection(String UrlData, String ParamData) throws IOException, JSONException {
+
+        URL url = new URL(UrlData+ParamData);
+        //호출할url
+        System.out.println(url);
+        Map<String, Object> params = new LinkedHashMap<>();//파라미터 세팅
+//        params.put("problem", "1");
+
+        Object c = "";
+
+        String s = "{\n" +
+                "       \"commands\": [\n";
+            s +=        "         { \"truck_id\": 0, \"command\": [2,4] }\n" ;
+        s+= "         \n" +
+                "       ]\n" +
+                "     }";
+
+
+
+        byte[] postDataBytes = s.getBytes("UTF-8");
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("PUT");
+        conn.setRequestProperty("Content-Type", "application/json");
+        conn.setRequestProperty("Authorization", auth_key);
+
+        conn.setRequestProperty("Content-Length", String.valueOf(postDataBytes.length));
+        conn.setDoOutput(true);
+        conn.getOutputStream().write(postDataBytes);//POST호출
+        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+        String inputLine;
+        String result="";
+
+
+        while ((inputLine = in.readLine()) != null)  //response 출력
+            result += inputLine;
+        in.close();
+
+        System.out.println(result);
+
+        JSONObject Object = new JSONObject(result);
+
+        System.out.println(Object);
+    }
+
+
+//    /simulate
 //    JSONObject jObject = new JSONObject(jsonString);
 //    // 배열을 가져옵니다.
 //    JSONArray jArray = jObject.getJSONArray("posts");
