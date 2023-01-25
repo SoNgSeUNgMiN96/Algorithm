@@ -1,6 +1,12 @@
+package baekjoon.Gold;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class BOJ2014 {
      public static void main(String[] args) throws Exception{
@@ -9,30 +15,23 @@ public class BOJ2014 {
          st = new StringTokenizer(br.readLine());
          int K = Integer.parseInt(st.nextToken()), N = Integer.parseInt(st.nextToken());
          int[] primeArr = new int[K];
-         int[] table = new int[500000];
+         Set<Integer> primeMulSet = new HashSet<>();
 
          st = new StringTokenizer(br.readLine());
          for (int i = 0; i < K; i++) {
              primeArr[i] = Integer.parseInt(st.nextToken());
          }
 
+         IntStream.range(0,K).forEach(i->{
+             IntStream.range(0,K).forEach(j->{
+                 primeMulSet.add(primeArr[i] * primeArr[j]);
+             });
+         });
 
-         for (int j = 0; j < K; j++) {
-            int temp = primeArr[j];
-            while (temp<500000){
-                table[temp] = 1;
-                temp += primeArr[j];
-            }
-         }
+         System.out.println(primeMulSet);
+         Object[] sortedPrimeMulList = primeMulSet.stream().sorted().toArray();
 
-         int i;
-         for (i = 2; i < 500000&&N>0; i++) {
-             if(table[i]==1){
-                 System.out.println(i);
-                 N--;
-             }
-         }
+         System.out.println(sortedPrimeMulList[N-1]);
 
-         System.out.println(i-1);
      }
 }
